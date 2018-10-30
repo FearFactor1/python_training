@@ -25,8 +25,7 @@ class UntitledTestCase(unittest.TestCase):
         driver.find_element_by_name("pass").click()
         driver.find_element_by_name("pass").clear()
         driver.find_element_by_name("pass").send_keys("secret")
-        driver.find_element_by_xpath(
-            "(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]").click()
+        driver.find_element_by_xpath("//input[@value='Login']").click()
         driver.find_element_by_name("firstname").click()
         driver.find_element_by_name("firstname").clear()
         driver.find_element_by_name("firstname").send_keys("ivanov")
@@ -74,23 +73,19 @@ class UntitledTestCase(unittest.TestCase):
         driver.find_element_by_name("homepage").send_keys("http://treet.rt")
         driver.find_element_by_name("bday").click()
         Select(driver.find_element_by_name("bday")).select_by_visible_text("2")
-        driver.find_element_by_xpath(
-            "(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[4]").click()
+        driver.find_element_by_xpath("//option[@value='2']").click()
         driver.find_element_by_name("bmonth").click()
         Select(driver.find_element_by_name("bmonth")).select_by_visible_text("January")
-        driver.find_element_by_xpath(
-            "(.//*[normalize-space(text()) and normalize-space(.)='Birthday:'])[1]/following::option[35]").click()
+        driver.find_element_by_xpath("//option[@value='January']").click()
         driver.find_element_by_name("byear").click()
         driver.find_element_by_name("byear").clear()
         driver.find_element_by_name("byear").send_keys("1999")
         driver.find_element_by_name("aday").click()
         Select(driver.find_element_by_name("aday")).select_by_visible_text("6")
-        driver.find_element_by_xpath(
-            "(.//*[normalize-space(text()) and normalize-space(.)='Anniversary:'])[1]/following::option[8]").click()
+        driver.find_element_by_xpath("(//option[@value='6'])[2]").click()
         driver.find_element_by_name("amonth").click()
         Select(driver.find_element_by_name("amonth")).select_by_visible_text("March")
-        driver.find_element_by_xpath(
-            "(.//*[normalize-space(text()) and normalize-space(.)='Anniversary:'])[1]/following::option[37]").click()
+        driver.find_element_by_xpath("(//option[@value='March'])[2]").click()
         driver.find_element_by_name("ayear").click()
         driver.find_element_by_name("ayear").clear()
         driver.find_element_by_name("ayear").send_keys("2000")
@@ -103,8 +98,7 @@ class UntitledTestCase(unittest.TestCase):
         driver.find_element_by_name("notes").click()
         driver.find_element_by_name("notes").clear()
         driver.find_element_by_name("notes").send_keys("ghfgfhfhfhfghfghfhfhfg")
-        driver.find_element_by_xpath(
-            "(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]").click()
+        driver.find_element_by_xpath("(//input[@name='submit'])[2]").click()
         driver.find_element_by_link_text("Logout").click()
 
     def is_element_present(self, how, what):
