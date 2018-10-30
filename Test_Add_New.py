@@ -11,7 +11,8 @@ class TestAddNew(unittest.TestCase):
 
     def test_add_new(self):
         wd = self.wd
-        wd.get("http://localhost/addressbook/edit.php")
+        #
+        wd.get("http://localhost/addressbook/")
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys("admin")
@@ -19,6 +20,7 @@ class TestAddNew(unittest.TestCase):
         wd.find_element_by_name("pass").clear()
         wd.find_element_by_name("pass").send_keys("secret")
         wd.find_element_by_xpath("//input[@value='Login']").click()
+        wd.find_element_by_link_text("add new").click()
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
         wd.find_element_by_name("firstname").send_keys("ivanov")
