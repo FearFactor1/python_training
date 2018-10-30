@@ -11,8 +11,9 @@ class TestAddNew(unittest.TestCase):
 
     def test_add_new(self):
         wd = self.wd
-        #
+        #open home page
         wd.get("http://localhost/addressbook/")
+        # login
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys("admin")
@@ -20,7 +21,9 @@ class TestAddNew(unittest.TestCase):
         wd.find_element_by_name("pass").clear()
         wd.find_element_by_name("pass").send_keys("secret")
         wd.find_element_by_xpath("//input[@value='Login']").click()
+        # click in submit add new
         wd.find_element_by_link_text("add new").click()
+        # add rows in form contacts fio
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
         wd.find_element_by_name("firstname").send_keys("ivanov")
@@ -33,6 +36,7 @@ class TestAddNew(unittest.TestCase):
         wd.find_element_by_name("nickname").click()
         wd.find_element_by_name("nickname").clear()
         wd.find_element_by_name("nickname").send_keys("xhel")
+        # add rows in form contacts company
         wd.find_element_by_name("title").click()
         wd.find_element_by_name("title").clear()
         wd.find_element_by_name("title").send_keys("contakt")
@@ -63,6 +67,7 @@ class TestAddNew(unittest.TestCase):
         wd.find_element_by_name("email3").click()
         wd.find_element_by_name("email3").clear()
         wd.find_element_by_name("email3").send_keys("fggfh@.yu.tyu")
+        # add rows in form contacts lichnie dannie
         wd.find_element_by_name("homepage").click()
         wd.find_element_by_name("homepage").clear()
         wd.find_element_by_name("homepage").send_keys("http://treet.rt")
@@ -93,7 +98,9 @@ class TestAddNew(unittest.TestCase):
         wd.find_element_by_name("notes").click()
         wd.find_element_by_name("notes").clear()
         wd.find_element_by_name("notes").send_keys("ghfgfhfhfhfghfghfhfhfg")
+        # click Enter
         wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
+        # logout
         wd.find_element_by_link_text("Logout").click()
 
 
