@@ -105,6 +105,7 @@ class UntitledTestCase(unittest.TestCase):
         driver.find_element_by_name("notes").send_keys("ghfgfhfhfhfghfghfhfhfg")
         driver.find_element_by_xpath(
             "(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]").click()
+        driver.find_element_by_link_text("Logout").click()
 
     def is_element_present(self, how, what):
         try:
@@ -139,5 +140,3 @@ class UntitledTestCase(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-
