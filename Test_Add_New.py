@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
 import unittest
-
+from selenium.webdriver.support.ui import Select
 
 class TestAddNew(unittest.TestCase):
     def setUp(self):
@@ -9,7 +9,7 @@ class TestAddNew(unittest.TestCase):
         self.wd.implicitly_wait(30)
 
 
-    def test_untitled_test_case(self):
+    def test_add_new(self):
         wd = self.wd
         wd.get("http://localhost/addressbook/edit.php")
         wd.find_element_by_name("user").click()
