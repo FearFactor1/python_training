@@ -98,7 +98,7 @@ class TestAddNew(unittest.TestCase):
         wd.find_element_by_name("byear").send_keys(byear)
         wd.find_element_by_name("aday").click()
         Select(wd.find_element_by_name("aday")).select_by_visible_text(aday)
-        wd.find_element_by_xpath("(//option[@value=''])").click()
+        wd.find_element_by_xpath("//option[@value='']").click()
         wd.find_element_by_name("amonth").click()
         Select(wd.find_element_by_name("amonth")).select_by_visible_text(amonth)
         wd.find_element_by_xpath("(//option[@value=''])").click()
