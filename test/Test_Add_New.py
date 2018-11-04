@@ -2,7 +2,7 @@
 from selenium.webdriver.firefox.webdriver import WebDriver
 import unittest
 from selenium.webdriver.support.ui import Select
-from contact import Contact
+from model.contact import Contact
 
 class TestAddNew(unittest.TestCase):
     def setUp(self):
