@@ -13,6 +13,7 @@ class ContactHelper:
 
     def create(self, contact):
         wd = self.app.wd
+        self.open_home_page()
         # click in submit add new
         wd.find_element_by_link_text("add new").click()
         # add rows in form contacts fio
