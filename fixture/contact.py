@@ -54,14 +54,14 @@ class ContactHelper:
         self.change_field_value("email3", contact.email3)
         # add rows in form contacts lichnie dannie
         self.change_field_value("homepage", contact.homepage)
-        self.change_field_value("bday", contact.bday)
+        self.change_spisok_value("bday", contact.bday)
         Select(wd.find_element_by_name("bday")).select_by_visible_text(contact.bday)
-        self.change_field_value("bmonth", contact.bmonth)
+        self.change_spisok_value("bmonth", contact.bmonth)
         Select(wd.find_element_by_name("bmonth")).select_by_visible_text(contact.bmonth)
         self.change_field_value("byear", contact.byear)
-        self.change_field_value("aday", contact.aday)
+        self.change_spisok_value("aday", contact.aday)
         Select(wd.find_element_by_name("aday")).select_by_visible_text(contact.aday)
-        self.change_field_value("amonth", contact.amonth)
+        self.change_spisok_value("amonth", contact.amonth)
         Select(wd.find_element_by_name("amonth")).select_by_visible_text(contact.amonth)
         self.change_field_value("ayear", contact.ayear)
         self.change_field_value("address2", contact.address2)
@@ -77,6 +77,14 @@ class ContactHelper:
             wd.find_element_by_name(field_name).clear()
             wd.find_element_by_name(field_name).send_keys(text)
 
+
+
+    def change_spisok_value(self, field_name, text):
+        wd = self.app.wd
+        if text is  None:
+            wd.find_element_by_name(field_name).click()
+            wd.find_element_by_name(field_name).send_keys(text)
+            Select(wd.find_element_by_name(field_name)).select_by_visible_text(text)
 
 
     def modify_first_contact(self, new_contact_data):
