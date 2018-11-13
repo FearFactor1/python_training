@@ -28,6 +28,7 @@ class SessionHelper:
         if self.is_logged_in():
             self.logout()
 
+
     def is_logged_in(self):
         wd = self.app.wd
         return len(wd.find_elements_by_link_text("Logout")) > 0
