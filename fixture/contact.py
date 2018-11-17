@@ -23,7 +23,7 @@ class ContactHelper:
         wd = self.app.wd
         self.open_home_page()
         contacts = []
-        for element in wd.find_elements_by_css_selector("td.center"):
+        for element in wd.find_elements_by_css_selector("tr[name]"):
             text=element.text
             id = element.find_element_by_name("selected[]").get_attribute("value")
             contacts.append(Contact(firstname=text, id=id))
@@ -123,4 +123,3 @@ class ContactHelper:
         wd = self.app.wd
         if not (wd.current_url.endswith("/edit.php") and len(wd.find_elements_by_name("submit")) > 0):
             wd.find_element_by_link_text("home").click()
-        
