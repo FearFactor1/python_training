@@ -35,7 +35,7 @@ class Contact:
 
 
     def __repr__(self):
-        return "%s:%s" % (self.id.firstname)
+        return "%s:%s" % (self.firstname)
 
 
     def __eq__(self, other):
