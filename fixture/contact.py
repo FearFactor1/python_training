@@ -126,7 +126,7 @@ class ContactHelper:
         self.open_home_page()
         self.select_contact_by_index(index)
         # open modification form
-        wd.find_element_by_xpath("//img[@alt='Edit']").click()
+        wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
         # fill contact form
         self.fill_contact_form(new_contact_data)
         # submit modification
