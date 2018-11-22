@@ -26,9 +26,8 @@ class ContactHelper:
             self.open_home_page()
             self.contact_cache = []
             for element in wd.find_elements_by_css_selector("tr[name=entry]"):
-                text=element.text
-                id = element.find_elements_by_css_selector("tr[td]")
-                self.contact_cache.append(Contact(firstname=text, id=id))
+                cells = element.find_elements_by_tag_name("td")
+                self.contact_cache.append(Contact(lastname=cells[1], firstname=cells[2]))
         return list(self.contact_cache)
 
 
