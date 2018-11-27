@@ -158,9 +158,10 @@ class ContactHelper:
         cell.find_element_by_tag_name("a").click()
 
 
-    def get_contact_info_from_edit_page(self, index):
+    def get_contact_info_from_edit_page(self, index, new_contact_data):
         wd = self.app.wd
         self.modify_contact_by_index(index)
+        self.fill_contact_form(new_contact_data)
         firstname = wd.find_element_by_name("firstname").get_attribute("value")
         lastname = wd.find_element_by_name("lastname").get_attribute("value")
         id = wd.find_element_by_name("id").get_attribute("value")
