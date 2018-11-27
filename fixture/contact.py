@@ -42,6 +42,7 @@ class ContactHelper:
         self.fill_contact_form(contact)
         # click Enter
         wd.find_element_by_xpath("(//input[@name='submit'])[2]").click()
+        #wd.find_element_by_css_selector('input[type="submit"]').click()
         self.return_to_home_page()
         self.contact_cache = None
 
@@ -54,6 +55,7 @@ class ContactHelper:
         self.select_contact_by_index(index)
         # submit deletion
         wd.find_element_by_xpath("//input[@value='Delete']").click()
+        #wd.find_element_by_css_selector('input[value="Delete"]').click()
         wd.switch_to_alert().accept()
         self.return_to_home_page()
         self.contact_cache = None
@@ -129,10 +131,12 @@ class ContactHelper:
         self.open_home_page()
         # open modification form
         wd.find_elements_by_xpath("//img[@alt='Edit']")[index].click()
+        #wd.find_elements_by_css_selector('img[alt="Edit"]')[index].click()
         # fill contact form
         self.fill_contact_form(new_contact_data)
         # submit modification
         wd.find_element_by_xpath("(//input[@name='update'])[2]").click()
+        #wd.find_element_by_css_selector('input[name="update"]').click()
         self.return_to_home_page()
         self.contact_cache = None
 
