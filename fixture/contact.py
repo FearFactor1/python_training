@@ -31,12 +31,12 @@ class ContactHelper:
                 firstname=cells[1].text
                 lastname=cells[2].text
                 address=cells[3].text
-                all_emails=cells[4].text.splitlines()
+                all_emails=cells[4].text
                 id = cells[0].find_element_by_tag_name("input").get_attribute("value")
                 all_phones = cells[5].text
                 self.contact_cache.append(Contact(firstname=firstname, lastname=lastname, id=id,
-                                                  all_phones_from_home_page = all_phones, address=address,
-                                                  email=all_emails[0], email2=all_emails[1], email3=all_emails[2]))
+                                                  all_phones_from_home_page = all_phones,
+                                                  all_emails_from_home_page=all_emails, address=address))
         return list(self.contact_cache)
 
 
@@ -196,8 +196,4 @@ class ContactHelper:
         workphone = re.search("W: (.*)", text).group(1)
         mobilephone = re.search("M: (.*)", text).group(1)
         secondaryphone = re.search("P: (.*)", text).group(1)
-        email = re.search("mailto: (.*)", text).group(1)
-        email2 = re.search("mailto: (.*)", text).group(1)
-        email3 = re.search("mailto: (.*)", text).group(1)
-        return Contact(homephone=homephone, mobilephone=mobilephone, workphone=workphone, secondaryphone=secondaryphone,
-                       email=email, email2=email2, email3=email3)
+        return Contact(homephone=homephone, mobilephone=mobilephone, workphone=workphone, secondaryphone=secondaryphone)
