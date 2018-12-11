@@ -1,6 +1,5 @@
-
-from model.contact import Contact
 import random
+from model.contact import Contact
 
 
 def test_delete_some_contact(app, db, check_ui):
