@@ -165,7 +165,7 @@ class ContactHelper:
         self.contact_cache = None
 
 
-    def add_contact_in_group(self, index):
+    def add_contact_in_group(self, index, text):
         wd = self.app.wd
         wd.find_elements_by_name("selected[]")[index].click()
         wd.find_element_by_name("to_group").click()
