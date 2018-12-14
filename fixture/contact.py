@@ -40,6 +40,7 @@ class ContactHelper:
         return list(self.contact_cache)
 
 
+
     def create(self, contact):
         wd = self.app.wd
         self.open_home_page()
@@ -51,6 +52,7 @@ class ContactHelper:
         #wd.find_element_by_css_selector('input[type="submit"]').click()
         self.return_to_home_page()
         self.contact_cache = None
+
 
     def delete_first_contact(self):
         self.delete_contact_by_index(0)
@@ -159,6 +161,17 @@ class ContactHelper:
         # submit modification
         wd.find_element_by_xpath("(//input[@name='update'])[2]").click()
         #wd.find_element_by_css_selector('input[name="update"]').click()
+        self.return_to_home_page()
+        self.contact_cache = None
+
+
+    def add_contact_in_group(self, index):
+        wd = self.app.wd
+        wd.find_elements_by_name("selected[]")[index].click()
+        wd.find_element_by_name("to_group").click()
+        Select(wd.find_element_by_name("to_group")).select_by_visible_text("name1")
+        wd.find_element_by_xpath("(//option[@value='3'])[2]").click()
+        wd.find_element_by_name("add").click()
         self.return_to_home_page()
         self.contact_cache = None
 
