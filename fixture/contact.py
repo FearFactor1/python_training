@@ -21,7 +21,7 @@ class ContactHelper:
 
     contact_cache=None
 
-    def get_contact_list(self):
+    def get_contact_list(self, text):
         if self.contact_cache is None:
             wd = self.app.wd
             self.open_home_page()
@@ -181,7 +181,6 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_elements_by_name("selected[]")[index].click()
         wd.find_element_by_name("to_group").click()
-        Select(wd.find_element_by_name("to_group")).select_by_visible_text("name1")
         wd.find_element_by_xpath("(//option[@value='3'])[2]").click()
         wd.find_element_by_name("add").click()
         self.return_to_home_page()
