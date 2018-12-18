@@ -85,9 +85,8 @@ class ContactHelper:
         wd = self.app.wd
         self.open_home_page()
         wd.find_element_by_name("group").click()
-        Select(wd.find_element_by_name("group")).select_by_visible_text("name1")
-        wd.find_element_by_xpath("//option[@value='3']").click()
-        wd.find_element_by_name("selected[]").click()
+        wd.find_element_by_xpath("//option[@value='35']").click()
+        self.select_contact_by_id(id)
         wd.find_element_by_name("remove").click()
         self.return_to_home_page()
         self.contact_cache = None
