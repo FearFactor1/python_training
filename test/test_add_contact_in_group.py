@@ -7,7 +7,7 @@ def test_add_contact_in_group(app, db, check_ui):
         app.contact.create(Contact(firstname="test"))
     old_contacts = db.get_contact_list()
     contact = random.choice(old_contacts)
-    app.contact.add_contact_in_group(contact.id)
+    app.contact.add_contact_in_group(contact.id, contact.group_id)
     new_contacts = db.get_contact_list()
     assert len(old_contacts) == len(new_contacts)
     if check_ui:

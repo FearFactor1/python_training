@@ -142,8 +142,6 @@ class ContactHelper:
         self.change_field_value("address2", contact.address2)
         self.change_field_value("phone2", contact.phone2)
         self.change_field_value("notes", contact.notes)
-        self.add_spisok_group("to_group", contact.to_group)
-        Select(wd.find_element_by_name("to_group")).select_by_visible_text(contact.to_group)
 
 
 
@@ -178,12 +176,12 @@ class ContactHelper:
         self.contact_cache = None
 
 
-    def add_contact_in_group(self, id):
+    def add_contact_in_group(self, id, group_id):
         wd = self.app.wd
         self.open_home_page()
         self.select_contact_by_id(id)
         wd.find_element_by_name("to_group").click()
-        wd.find_element_by_xpath("(//option[@value='35'])[2]").click()
+        wd.find_element_by_css_selector('select[name="to_group"]>option[value="%s"]' % group_id)[0].click()
         wd.find_element_by_name("add").click()
         self.return_to_home_page()
         self.contact_cache = None
