@@ -181,8 +181,9 @@ class ContactHelper:
         self.open_home_page()
         self.select_contact_by_id(id)
         wd.find_element_by_name("to_group").click()
-        wd.find_element_by_css_selector('select[name="to_group"]>option[value="%s"]' % group_id)[0].click()
-        wd.find_element_by_name("add").click()
+        wd.find_element_by_xpath('//select[@name = "to_group"]').click()
+        wd.find_elements_by_css_selector('select[name="to_group"] > option[value="%s"]' % group_id)[0].click()
+        wd.find_element_by_xpath('//input[@name="add"]').click()
         self.return_to_home_page()
         self.contact_cache = None
 
